@@ -1,6 +1,6 @@
 ---
 name: "aritma-compliance-agent"
-description: "Bruk denne skillen når (1) noen hos Aritma skal fylle ut et sikkerhets-/compliance-spørreskjema fra en kunde eller potensiell kunde (security questionnaire, vendor risk assessment, due diligence-skjema, RFP-sikkerhetsseksjon o.l.), (2) brukeren sender inn et enkeltstående sikkerhets-/compliance-spørsmål som skal besvares, eller (3) brukeren skriver noe i stil med "fyll ut dette sikkerhetsskjemaet", "besvar dette vendor questionnaire", "compliance agent" eller "sjekk mot kunnskapsbasen vår". Skillen henter svar fra Aritmas Notion-kunnskapsbase ("Compliance Q&A Library" + referansesidene for ToS og DPA) og svarer basert på det som faktisk finnes der, med en confidence-markert, direkte innlimbar svartekst for hvert spørsmål."
+description: "Bruk denne skillen når (1) noen hos Aritma skal fylle ut et sikkerhets-/compliance-spørreskjema fra en kunde eller potensiell kunde (security questionnaire, vendor risk assessment, due diligence-skjema, RFP-sikkerhetsseksjon o.l.), (2) brukeren sender inn et enkeltstående sikkerhets-/compliance-spørsmål som skal besvares, eller (3) brukeren skriver noe i stil med \"fyll ut dette sikkerhetsskjemaet\", \"besvar dette vendor questionnaire\", \"compliance agent\" eller \"sjekk mot kunnskapsbasen vår\". Skillen henter svar fra Aritmas Notion-kunnskapsbase (\"Compliance Q&A Library\" + referansesidene for ToS og DPA) og svarer basert på det som faktisk finnes der, med en confidence-markert, direkte innlimbar svartekst for hvert spørsmål."
 ---
 
 # Aritma Compliance Agent

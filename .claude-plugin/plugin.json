@@ -1,0 +1,9 @@
+{
+  "name": "aritma-commercial",
+  "displayName": "Aritma Commercial",
+  "version": "1.0.0",
+  "description": "Aritma Commercial: Compliance Agent (sikkerhets-/compliance-spørreskjemaer), Marketing Agent (markedsføring, kundecase, rapportering) og aritma-pptx (brand-riktige PowerPoint-presentasjoner).",
+  "author": {
+    "name": "Aritma"
+  }
+}

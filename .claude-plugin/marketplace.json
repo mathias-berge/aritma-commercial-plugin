@@ -1,0 +1,13 @@
+{
+  "name": "aritma-marketplace",
+  "owner": {
+    "name": "Aritma"
+  },
+  "plugins": [
+    {
+      "name": "aritma-commercial",
+      "source": "./",
+      "description": "Aritma Commercial: Compliance Agent, Marketing Agent og aritma-pptx."
+    }
+  ]
+}

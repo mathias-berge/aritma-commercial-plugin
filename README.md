@@ -3,7 +3,8 @@
 Denne pluginen samler Aritmas interne Claude-skills:
 
 - `skills/aritma-compliance-agent` — besvarer sikkerhets-/compliance-spørreskjemaer fra Aritmas Notion-kunnskapsbase.
-- `skills/aritma-marketing-agent` — markedsføringsstøtte, kundecase-innhold, rapportering. Bruker Notion (inkl. Customer Case Library), HubSpot og Slack.
+- `skills/aritma-marketing-agent` — markedsføringsstøtte, kundecase-innhold, marketing-rapportering. Bruker Notion (Marketing Agent – Knowledge Base, inkl. Customer Case Library), HubSpot og Slack.
+- `skills/aritma-sales-agent` — kundevendt salgstekst, prising, konkurrentinfo og deal-/pipeline-forecast. Bruker Notion (Sales Agent – Knowledge Base) og HubSpot.
 - `skills/aritma-pptx` — brand-riktige PowerPoint-presentasjoner for Aritma.
 
 ## Slik tar dere den i bruk

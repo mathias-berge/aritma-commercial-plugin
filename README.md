@@ -5,19 +5,18 @@ Denne pluginen samler Aritmas interne Claude-skills:
 - `skills/aritma-compliance-agent` — besvarer sikkerhets-/compliance-spørreskjemaer fra Aritmas Notion-kunnskapsbase.
 - `skills/aritma-marketing-agent` — markedsføringsstøtte, kundecase-innhold, marketing-rapportering. Bruker Notion (Marketing Agent – Knowledge Base, inkl. Customer Case Library), HubSpot og Slack.
 - `skills/aritma-sales-agent` — kundevendt salgstekst, prising, konkurrentinfo og deal-/pipeline-forecast. Bruker Notion (Sales Agent – Knowledge Base) og HubSpot.
+- `skills/aritma-solution-architect-agent` — tekniske avklaringer om produkt, filformater, bankdetaljer og ERP-integrasjoner for commercial-teamet. Søker fritt i hele Notion (ingen egen samlet kunnskapsbase-side) og bruker HubSpot for kunde-/dealkontekst.
 - `skills/aritma-pptx` — brand-riktige PowerPoint-presentasjoner for Aritma.
 
 ## Slik tar dere den i bruk
 
-### Alternativ 1: Del som marketplace via git (anbefalt)
+Denne pluginen distribueres via et internt, privat git-repo. Du trenger ikke sette opp noe selv:
 
-1. Push denne mappen til et internt git-repo (kan være privat).
-2. Del repo-URL-en med teamet.
-3. Hver kollega går til Settings → Plugins → Add marketplace i Claude-appen, limer inn repo-URL-en, og installerer `aritma-commercial`.
+1. Be Mathias Berge om URL-en til repoet og eventuell tilgangsnøkkel (siden repoet er privat).
+2. Gå til Settings → Plugins → Add marketplace i Claude-appen, og lim inn repo-URL-en du fikk.
+3. Installer `aritma-commercial` fra marketplace-listen.
 
-### Alternativ 2: Del skillsene enkeltvis
-
-Hver undermappe i `skills/` er også en frittstående skill og kan installeres/lastes opp separat hvis dere ikke vil bruke marketplace-flyten ennå.
+Ved fremtidige oppdateringer: du trenger ikke gjøre noe nytt oppsett — bare sjekk for oppdateringer i Plugins-panelet, eller fjern og legg til pluginen på nytt dersom oppdateringen ikke dukker opp automatisk.
 
 ## Viktig: tilkoblinger (Notion, HubSpot, Slack)
 

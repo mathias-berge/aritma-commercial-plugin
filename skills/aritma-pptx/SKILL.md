@@ -12,9 +12,9 @@ Read `/mnt/skills/public/pptx/pptxgenjs.md` for the full PptxGenJS API reference
 
 Use this authority order when values conflict:
 
-1. Aritma Figma Design System: `https://www.figma.com/design/DPq9HRIkW8EVjjuijfOF3f/Aritma-%7C-Design-System?node-id=2-3&t=dDErqL1hImM746Mz-1`
+1. Aritma Figma Design System: https://www.figma.com/design/DPq9HRIkW8EVjjuijfOF3f/Aritma-%7C-Design-System?node-id=2-3&t=dDErqL1hImM746Mz-1
 2. Uploaded Aritma Brand Guidelines
-3. This `SKILL.md`
+3. This SKILL.md
 4. Older presentation or asset-library examples
 
 Do not use colors, typefaces, or layout conventions from older decks if they conflict with the current Figma design system or brand guidelines.
@@ -34,7 +34,7 @@ Do not use colors, typefaces, or layout conventions from older decks if they con
 
 ## Aritma brand system
 
-### Colors (no `#` prefix in PptxGenJS)
+### Colors (no # prefix in PptxGenJS)
 
 Use these exact values unless the Figma file has newer token values.
 
@@ -80,15 +80,15 @@ NEUTRAL_50    = "F6F6F7"   // subtle backgrounds
 
 ### Color usage rules
 
-- Use **Indigo `45095A`** for dark slide backgrounds, primary headings, deep accents, and brand-heavy moments.
-- Use **Pink `FB8CAF`** for logo usage on light backgrounds, accent bars, decorative highlights, and selected dark-slide accents.
-- Use **Blue `2549D2`** for buttons, links, badges, callouts, and interactive-looking elements.
-- Use **Off-white `F9F0EE`** as the default content slide background.
-- Use **Black `110F0E`** or Neutral 900 `141418` for primary text on light backgrounds.
-- Use **Neutral 700 `434546`** for body text on light backgrounds.
-- Use **Neutral 500 `75717A`** for captions, labels, and muted metadata.
-- Use **Neutral 300 `D7D4DB`** for borders and dividers.
-- Do not use the older off-palette values from the previous skill, such as `2D1B4E`, `F5A0B5`, `E8799A`, `F5EDE6`, `5C5270`, `8B7FA3`, or `D4C4E8`, unless the user explicitly asks to recreate an old visual.
+- Use **Indigo 45095A** for dark slide backgrounds, primary headings, deep accents, and brand-heavy moments.
+- Use **Pink FB8CAF** for logo usage on light backgrounds, accent bars, decorative highlights, and selected dark-slide accents.
+- Use **Blue 2549D2** for buttons, links, badges, callouts, and interactive-looking elements.
+- Use **Off-white F9F0EE** as the default content slide background.
+- Use **Black 110F0E** or Neutral 900 141418 for primary text on light backgrounds.
+- Use **Neutral 700 434546** for body text on light backgrounds.
+- Use **Neutral 500 75717A** for captions, labels, and muted metadata.
+- Use **Neutral 300 D7D4DB** for borders and dividers.
+- Do not use the older off-palette values from the previous skill, such as 2D1B4E, F5A0B5, E8799A, F5EDE6, 5C5270, 8B7FA3, or D4C4E8, unless the user explicitly asks to recreate an old visual.
 
 ### Accessibility
 
@@ -110,7 +110,7 @@ NEUTRAL_50    = "F6F6F7"   // subtle backgrounds
 | Body / content slides | Inter | Arial or Calibri when Inter is unavailable |
 | Technical fallback in PptxGenJS | Inter | Arial |
 
-PptxGenJS can only use fonts available to the environment opening the deck. Use `Aritma Uten` and `Inter` in generated files, but expect PowerPoint to substitute fonts if they are not installed.
+PptxGenJS can only use fonts available to the environment opening the deck. Use Aritma Uten and Inter in generated files, but expect PowerPoint to substitute fonts if they are not installed.
 
 ```javascript
 const FONT_DISPLAY = "Aritma Uten";
@@ -147,8 +147,8 @@ const FONT_FALLBACK = "Arial";
 ## Slide format
 
 - Layout: `LAYOUT_16x9` (10" × 5.625")
-- Default content background: Off-white `F9F0EE`
-- Default dark background: Indigo `45095A`
+- Default content background: Off-white F9F0EE
+- Default dark background: Indigo 45095A
 - Default body font: Inter, with Arial fallback
 - Use an 8px-derived spacing logic translated to PowerPoint inches. Prefer consistent spacing over pixel-perfect conversion.
 
@@ -398,23 +398,21 @@ function addCard(slide, x, y, w, h, opts = {}) {
 
 **Aritma Open Finance Platform**: The core API platform enabling Nordic bank integrations. ERP-agnostic middleware connecting ERPs to banks via ISO 20022 and bank-specific file formats. Licensed payment institution in Norway.
 
-**Aritma Payments** (Pay in some older icon libraries): Payment initiation module. Sends payment files (`pain.001` ISO 20022) to banks and processes return files (`pain.002`, `camt.054`). Handles SFTP/API connectivity per bank. Primary market: Microsoft Dynamics 365 Business Central customers in the Nordics.
+**Aritma Payments** (Pay in some older icon libraries): Payment initiation module. Sends payment files (pain.001 ISO 20022) to banks and processes return files (pain.002, camt.054). Handles SFTP/API connectivity per bank. Primary market: Microsoft Dynamics 365 Business Central customers in the Nordics.
 
-**Aritma Reconciliation** (Control in some older icon libraries): Bank reconciliation and cash management. Fetches bank statements (`camt.052` intraday, `camt.053` end-of-day), matches transactions against ERP entries. Key value: automated bank reconciliation within Business Central.
+**Aritma Reconciliation** (Control in some older icon libraries): Bank reconciliation and cash management. Fetches bank statements (camt.052 intraday, camt.053 end-of-day), matches transactions against ERP entries. Key value: automated bank reconciliation within Business Central.
 
 **Smart Bookkeeping**: A feature within Reconciliation currently available for customers using Visma's BNXT ERP. When creating content for BNXT audiences, highlight Smart Bookkeeping as the relevant Reconciliation capability.
 
 **Aritma Finance Manager**: The Business Central-embedded app combining Payments and Reconciliation in one user interface. Target audience: finance teams in Business Central-using companies.
 
-**Gateway** (in development, placeholder name): A new access point to the Aritma platform. Not ready for customer-facing content yet. Do not include in decks unless explicitly asked.
-
-> Note: Aritma Commerce is no longer marketed or sold. Do not include it in customer-facing content unless the user explicitly asks for historical or legacy material.
+Note: Aritma Commerce is no longer marketed or sold. Do not include it in customer-facing content unless the user explicitly asks for historical or legacy material.
 
 ### Key differentiators
 
 - Payment institution license, allowing Aritma to hold funds and initiate payments on behalf of customers where relevant.
 - Direct bank connections across Nordic banks, including DNB, Nordea, SEB, Handelsbanken, Swedbank, Danske Bank, and more.
-- ISO 20022 native: `pain.001`, `pain.002`, `camt.052`, `camt.053`, `camt.054`, `pacs`.
+- ISO 20022 native: pain.001, pain.002, camt.052, camt.053, camt.054, pacs.
 - Business Central embedded: works inside Dynamics 365 Business Central with no additional UI for BC users.
 - Nordic-specific formats and schemes: BG MAX, Bankgiro, OCR/KID, eFaktura, AvtaleGiro.
 - Regulatory foundation: PSD2 PISP/AISP licensing and ISO 20022 migration support.
@@ -427,39 +425,36 @@ function addCard(slide, x, y, w, h, opts = {}) {
 - ERP partners, resellers, and VARs building Business Central solutions.
 - Visma BNXT users for Reconciliation and Smart Bookkeeping.
 
-### Pricing tiers (Aritma Payments)
+### Pricing (fetch from Notion, never hardcode)
 
-Verify current pricing before using in customer-facing material.
+This skill deliberately contains no prices. Current package prices live in the Notion database **Pricing (Payments & Reconciliation)**, under Aritma Wiki → AI Agents - Knowledge base → Sales Agent – Knowledge Base. Access requires the Notion connector and an Aritma Notion login.
 
-- Small: NOK 2 500/month: 1 000 payment + 1 000 receivable transactions, NOK 2.50/excess.
-- Medium: NOK 5 000/month: 2 500 + 2 500, NOK 2.00/excess.
-- Large: NOK 8 750/month: 5 000 + 5 000, NOK 1.75/excess.
-- Enterprise: talk to sales.
+Only fetch pricing when the deck or one-pager actually includes prices. When it does:
 
-### Pricing tiers (Aritma Reconciliation)
+1. Fetch the data source with the Notion connector: `collection://dcbf27eb-c47e-458c-84c9-ec291e6b17ed`. If that fails, search Notion for "Pricing (Payments & Reconciliation)".
+2. Read every row for the relevant module. Columns: `Package` (title), `Module` (Payments / Reconciliation / Both), `Price`, `Currency`, `Billing Period`, `What's Included`, `Comment`, `Last Updated`.
+3. Use the figures exactly as they appear. Do not round, convert currency, or fill gaps from memory or older decks.
+4. Check `Comment` for conditions (e.g. with/without SLA, market-specific pricing such as Finance Manager BC in SEK) and reflect them on the slide.
+5. Show Enterprise as "Contact sales" unless the database says otherwise.
+6. If the Notion connector is unavailable or the database cannot be read, do not invent or reuse old prices. Insert a clearly marked placeholder (e.g. "[Price from Notion]") and tell the user which slides need prices filled in.
 
-Verify current pricing before using in customer-facing material.
-
-- Small: NOK 2 500/month: unlimited users, 1 000 transactions, NOK 2.50/excess.
-- Medium: NOK 5 000/month: 5 000 transactions, NOK 1.00/excess.
-- Large: NOK 8 750/month: 10 000 transactions, NOK 0.875/excess.
-- Enterprise: talk to sales.
+API platform pricing is customer-specific and is intentionally not in the database. Never put API prices in a deck.
 
 ---
 
 ## Icons from the brand asset library
 
-Use official Aritma/Heydays custom icons where available. Use `react-icons` equivalents only when building programmatically and no official SVG asset is available. Match colors: Indigo `45095A` for light backgrounds, Pink `FB8CAF` for emphasis, White for dark backgrounds, and Blue `2549D2` for interactive elements.
+Use official Aritma/Heydays custom icons where available. Use react-icons equivalents only when building programmatically and no official SVG asset is available. Match colors: Indigo 45095A for light backgrounds, Pink FB8CAF for emphasis, White for dark backgrounds, and Blue 2549D2 for interactive elements.
 
 | Category | Use cases | Suggested react-icons fallback |
 |---------|-----------|-------------------------------|
-| Essential icons | General UI, arrows, chevrons | `FaChevronUp`, `FaArrowRight`, `FaLock`, `FaEye` |
-| Financial icons | Payments, banking, invoices | `FaUniversity`, `FaCreditCard`, `FaFileInvoiceDollar`, `FaChartLine` |
-| Ecommerce icons | Transactions, carts, orders | `FaShoppingCart`, `FaBox`, `FaExchangeAlt` |
-| Infographics icons | KPIs, dashboards, data | `FaChartBar`, `FaTachometerAlt`, `FaBullseye` |
-| Marketing icons | Growth, campaigns, leads | `FaBullhorn`, `FaRocket`, `FaHandshake` |
-| Teamwork icons | People, collaboration | `FaUsers`, `FaUserTie`, `FaHandshake` |
-| Media icons | Communications, files | `FaEnvelope`, `FaPhone`, `FaFileAlt` |
+| Essential icons | General UI, arrows, chevrons | FaChevronUp, FaArrowRight, FaLock, FaEye |
+| Financial icons | Payments, banking, invoices | FaUniversity, FaCreditCard, FaFileInvoiceDollar, FaChartLine |
+| Ecommerce icons | Transactions, carts, orders | FaShoppingCart, FaBox, FaExchangeAlt |
+| Infographics icons | KPIs, dashboards, data | FaChartBar, FaTachometerAlt, FaBullseye |
+| Marketing icons | Growth, campaigns, leads | FaBullhorn, FaRocket, FaHandshake |
+| Teamwork icons | People, collaboration | FaUsers, FaUserTie, FaHandshake |
+| Media icons | Communications, files | FaEnvelope, FaPhone, FaFileAlt |
 
 ### Icon-in-circle pattern
 
@@ -535,13 +530,13 @@ Five standard illustration types, generated inline using PptxGenJS image from an
 
 | Type | When to use |
 |------|-------------|
-| `network` | Integration, connectivity, bank connections |
-| `flow` | Process, workflow, onboarding steps |
-| `growth` | Performance, volume growth, KPIs |
-| `shield` | Security, compliance, PSD2, licensing |
-| `gears` | Operations, technical, ERP integration |
+| network | Integration, connectivity, bank connections |
+| flow | Process, workflow, onboarding steps |
+| growth | Performance, volume growth, KPIs |
+| shield | Security, compliance, PSD2, licensing |
+| gears | Operations, technical, ERP integration |
 
-Use Indigo `45095A`, Pink `FB8CAF`, Blue `2549D2`, and light tints such as Indigo-100 `E7D8F4` or Blue-100 `D8E3F8` in illustrations. Generate as SVG strings rendered via `sharp` to PNG base64.
+Use Indigo 45095A, Pink FB8CAF, Blue 2549D2, and light tints such as Indigo-100 E7D8F4 or Blue-100 D8E3F8 in illustrations. Generate as SVG strings rendered via sharp to PNG base64.
 
 ---
 
@@ -574,9 +569,9 @@ Remember any templates or reference documents shared in conversation and offer t
 
 The file `Aritma_Logo_Icons_and_Infographics.pptx` is Aritma's official brand asset library. It contains ready-made slide layouts for copy-paste use in presentations. When a deck needs one of these components, refer to this file.
 
-> Setup: Place the file at `assets/Aritma_Logo_Icons_and_Infographics.pptx` next to this skill's `SKILL.md`. Without it, layout references still work as guidance, but you will not be able to copy elements directly from the file.
+**Setup**: Place the file at `assets/Aritma_Logo_Icons_and_Infographics.pptx` next to this skill's SKILL.md. Without it, layout references still work as guidance, but you will not be able to copy elements directly from the file.
 
-> Important: The library may contain historical slides or discontinued product references. The Figma design system and the uploaded brand guidelines are authoritative for current color, typography, and product-use decisions.
+**Important**: The library may contain historical slides or discontinued product references. The Figma design system and the uploaded brand guidelines are authoritative for current color, typography, and product-use decisions.
 
 ### What's in the file
 
@@ -593,7 +588,7 @@ The file `Aritma_Logo_Icons_and_Infographics.pptx` is Aritma's official brand as
 | Media Icons | 16-17 | Communications, files, email, phone, video, social media. |
 | Teamwork Icons | 18-21 | People, collaboration, organizations, meetings. |
 | Europe Map | 26-29 | Editable Europe map. Copy whole map or individual countries. Comes in variants: simple map, map + stat callout, map + donut chart, map + bar chart. |
-| Pricing plans | 30-31 | Pre-built pricing tables for Payments and Reconciliation. Verify current pricing before use. Ignore Commerce pricing unless explicitly asked for historical material. |
+| Pricing plans | 30-31 | Pricing table layouts. Use the layout only. The figures in the file may be outdated: always replace them with current prices from the Notion Pricing database (see "Pricing" above). |
 | Stakeholder Maps | 33-52 | Approximately 20 stakeholder diagram variants: ring diagrams, hub-and-spoke, grid matrices, org-style trees, Venn-style overlaps. |
 | KPI Dashboards | 53-76 | Approximately 24 dashboard layouts: stat cards with sparklines, gauge widgets, bar/line/area charts, donut charts, comparisons, multi-metric layouts. |
 | Timeline | 77-84 | Approximately 8 timeline variants: horizontal milestone, vertical milestone, zigzag, compact table-style. |
@@ -603,18 +598,18 @@ The file `Aritma_Logo_Icons_and_Infographics.pptx` is Aritma's official brand as
 
 Use layouts from the library as structural references. Before generating new content, normalize all colors to the current Aritma brand system:
 
-- Indigo `45095A`
-- Pink `FB8CAF`
-- Blue `2549D2`
-- Red `F33F3F`
-- Off-white `F9F0EE`
-- Black `110F0E`
+- Indigo 45095A
+- Pink FB8CAF
+- Blue 2549D2
+- Red F33F3F
+- Off-white F9F0EE
+- Black 110F0E
 - Neutral scale from the current brand guidelines
 
 ### When to use which section
 
 - Need a map of Europe: slides 26-29.
-- Presenting pricing to a customer: slides 30-31, after verifying pricing.
+- Presenting pricing to a customer: layout from slides 30-31, figures from the Notion Pricing database.
 - Need a process or milestone flow: slides 77-84.
 - Showing KPIs or financial metrics: slides 53-76.
 - Need a 2-4 column content layout: slides 85-103.
@@ -631,23 +626,16 @@ After generating, always:
    - Logo appears in the footer on every slide unless a user-provided template specifies otherwise.
    - Confidential label appears top-left on every slide.
    - Page number appears bottom-right on every slide.
-   - Pink accent bars use `FB8CAF`.
-   - Content slides use Off-white `F9F0EE`, not `F5EDE6`.
-   - Dark slides use Indigo `45095A`, not `2D1B4E`.
-   - Light slide headings use Indigo `45095A`.
-   - Body text uses Black `110F0E`, Neutral 900 `141418`, or Neutral 700 `434546`.
+   - Pink accent bars use FB8CAF.
+   - Content slides use Off-white F9F0EE, not F5EDE6.
+   - Dark slides use Indigo 45095A, not 2D1B4E.
+   - Light slide headings use Indigo 45095A.
+   - Body text uses Black 110F0E, Neutral 900 141418, or Neutral 700 434546.
    - No text overflows card boundaries.
    - Cards use White surfaces and consistent corner radius.
-3. Check no incorrect legacy skill colors slipped in:
-   - `2D1B4E`
-   - `F5A0B5`
-   - `E8799A`
-   - `F5EDE6`
-   - `5C5270`
-   - `8B7FA3`
-   - `D4C4E8`
+3. Check no incorrect legacy skill colors slipped in: 2D1B4E, F5A0B5, E8799A, F5EDE6, 5C5270, 8B7FA3, D4C4E8.
 4. Check that Aritma Uten is used only for display/title moments and Inter is used for readable body content.
-5. Check that all customer-facing pricing and product claims have been verified if they are decision-critical.
+5. If the deck contains prices: confirm every figure came from the Notion Pricing database in this session, or is a clearly marked placeholder. No prices from memory or old decks.
 
 ---
 

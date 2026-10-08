@@ -165,7 +165,7 @@ Apply these to every slide, light and dark:
 Logo rules:
 
 - Light/off-white slides: use the Pink logo as first choice.
-- Dark/Indigo slides: use a White logo if available. If the packaged skill only contains `logo_pink.png` and `logo_purple.png`, use Pink on dark slides as the fallback.
+- Dark/Indigo slides: use a White logo if available. If the packaged skill only contains `ARITMA_Pink.png` and `ARITMA_Indigo.png`, use Pink on dark slides as the fallback.
 - Use Indigo logo only as a secondary option on light backgrounds when Pink is visually too prominent.
 - Do not stretch, rotate, recolor, shadow, outline, or distort logos.
 
@@ -177,10 +177,10 @@ function imgB64(file) {
   return "image/png;base64," + fs.readFileSync(path.join(__dirname, "assets", file)).toString("base64");
 }
 
-const LOGO_PINK_B64 = imgB64("logo_pink.png");
-const LOGO_INDIGO_B64 = imgB64("logo_purple.png");
-const LOGO_WHITE_B64 = fs.existsSync(path.join(__dirname, "assets", "logo_white.png"))
-  ? imgB64("logo_white.png")
+const LOGO_PINK_B64 = imgB64("ARITMA_Pink.png");
+const LOGO_INDIGO_B64 = imgB64("ARITMA_Indigo.png");
+const LOGO_WHITE_B64 = fs.existsSync(path.join(__dirname, "assets", "ARITMA_Offwhite.png"))
+  ? imgB64("ARITMA_Offwhite.png")
   : LOGO_PINK_B64;
 
 function addPageFurniture(slide, slideNum, isDark = false, opts = {}) {
@@ -211,7 +211,7 @@ function addPageFurniture(slide, slideNum, isDark = false, opts = {}) {
 }
 ```
 
-The `assets/` folder sits next to `generate.js` in the working directory. Copy `logo_pink.png` and `logo_purple.png` from the skill's own `assets/` folder to your working directory before running. Add `logo_white.png` when available from the official logo package.
+The `assets/` folder sits next to `generate.js` in the working directory. Copy `ARITMA_Pink.png` and `ARITMA_Indigo.png` from the skill's own `assets/` folder to your working directory before running. Add `ARITMA_Offwhite.png` when a White/light logo variant is needed on dark slides.
 
 ---
 
@@ -654,10 +654,10 @@ Copy logos to the working directory:
 
 ```bash
 mkdir -p ./assets
-cp /path/to/skill/assets/logo_pink.png ./assets/
-cp /path/to/skill/assets/logo_purple.png ./assets/
-# Optional when available from the official logo package:
-cp /path/to/official-assets/logo_white.png ./assets/
+cp /path/to/skill/assets/ARITMA_Pink.png ./assets/
+cp /path/to/skill/assets/ARITMA_Indigo.png ./assets/
+# Optional, light/white variant for use on dark slides:
+cp /path/to/skill/assets/ARITMA_Offwhite.png ./assets/
 ```
 
 Then run:

@@ -1,7 +1,7 @@
 ---
 name: aritma-pptx
 description: >
-  Creates on-brand PowerPoint presentations and single-page documents for Aritma, including pitch decks, product one-pagers, customer guides, reference decks, and sales enablement material. Use this skill whenever anyone at Aritma asks to create, build, or update a PowerPoint, slide deck, presentation, one-pager, or any customer-facing document in .pptx format. Also triggers for internal decks, all-hands slides, investor decks, or any sales/marketing collateral. Always applies the current Aritma brand guidelines, the Aritma Figma design system, and Aritma product knowledge. Never produce generic-looking slides. Every output must feel unmistakably Aritma.
+  Creates on-brand PowerPoint presentations and single-page documents for Aritma, including pitch decks, product one-pagers, customer guides, reference decks, and sales enablement material. Use this skill whenever anyone at Aritma asks to create, build, or update a PowerPoint, slide deck, presentation, one-pager, or any customer-facing document in .pptx format. Also triggers for internal decks, all-hands slides, investor decks, or any sales/marketing collateral. Always applies the current Aritma brand guidelines, the Aritma Figma design system, and current Aritma product knowledge. Never produce generic-looking slides. Every output must feel unmistakably Aritma.
 ---
 
 # Aritma PPTX Skill
@@ -18,6 +18,8 @@ Use this authority order when values conflict:
 4. Older presentation or asset-library examples
 
 Do not use colors, typefaces, or layout conventions from older decks if they conflict with the current Figma design system or brand guidelines.
+
+For product, positioning, technical, and pricing content: this skill never knows better than the live sources. See "Aritma product & technical knowledge" below — that section outranks any product wording elsewhere in this file or in older decks.
 
 ---
 
@@ -392,53 +394,62 @@ function addCard(slide, x, y, w, h, opts = {}) {
 
 ---
 
-## Aritma product knowledge
+## Aritma product & technical knowledge
 
-### Product portfolio
+Product positioning, module descriptions, legacy naming, competitor info, and pricing live in Notion and change over time — they are maintained outside this skill and are **not** reproduced here. Never draft customer-facing product copy from memory of a previous deck or session. Always get current content before writing slide copy that makes a product, positioning, or technical claim.
 
-**Aritma Open Finance Platform**: The core API platform enabling Nordic bank integrations. ERP-agnostic middleware connecting ERPs to banks via ISO 20022 and bank-specific file formats. Licensed payment institution in Norway.
+This skill owns **brand and layout**. It does not own **what Aritma's product does, how it's positioned, or what it costs** — those questions belong to `aritma-commercial:aritma-sales-agent` and `aritma-commercial:aritma-solution-architect-agent`, which already know the authoritative Notion sources, their exact IDs, and the freshness/guardrail rules around them. Delegate to them rather than re-fetching or re-deriving the same information independently, so there is exactly one place where those rules live.
 
-**Aritma Payments** (Pay in some older icon libraries): Payment initiation module. Sends payment files (pain.001 ISO 20022) to banks and processes return files (pain.002, camt.054). Handles SFTP/API connectivity per bank. Primary market: Microsoft Dynamics 365 Business Central customers in the Nordics.
+### Step 1 — work out what the deck actually needs
 
-**Aritma Reconciliation** (Control in some older icon libraries): Bank reconciliation and cash management. Fetches bank statements (camt.052 intraday, camt.053 end-of-day), matches transactions against ERP entries. Key value: automated bank reconciliation within Business Central.
+Before writing slide copy, sort the requested content into three buckets:
 
-**Smart Bookkeeping**: A feature within Reconciliation currently available for customers using Visma's BNXT ERP. When creating content for BNXT audiences, highlight Smart Bookkeeping as the relevant Reconciliation capability.
+1. **Product, positioning, legacy-naming, or pricing content** (e.g. what a module does, how to describe Aritma vs. its modules, "Aritma Pay" vs. "Payments", package prices) → **Step 2a**.
+2. **Technical/capability content** (e.g. specific file formats, bank-specific connectivity, ERP integration requirements, what is or isn't supported) → **Step 2b**.
+3. **Pure layout, brand, and generic framing** (e.g. "the challenge with manual payments", agenda structure, section titles) → no lookup needed, use judgment and the tone-of-voice rules below.
 
-**Aritma Finance Manager**: The Business Central-embedded app combining Payments and Reconciliation in one user interface. Target audience: finance teams in Business Central-using companies.
+A single deck often needs both 2a and 2b — do both when relevant, don't assume one covers the other.
 
-Note: Aritma Commerce is no longer marketed or sold. Do not include it in customer-facing content unless the user explicitly asks for historical or legacy material.
+### Step 2a — product, positioning, and pricing
 
-### Key differentiators
+Invoke the `aritma-commercial:aritma-sales-agent` skill and ask it directly for what the deck needs, for example:
 
-- Payment institution license, allowing Aritma to hold funds and initiate payments on behalf of customers where relevant.
-- Direct bank connections across Nordic banks, including DNB, Nordea, SEB, Handelsbanken, Swedbank, Danske Bank, and more.
-- ISO 20022 native: pain.001, pain.002, camt.052, camt.053, camt.054, pacs.
-- Business Central embedded: works inside Dynamics 365 Business Central with no additional UI for BC users.
-- Nordic-specific formats and schemes: BG MAX, Bankgiro, OCR/KID, eFaktura, AvtaleGiro.
-- Regulatory foundation: PSD2 PISP/AISP licensing and ISO 20022 migration support.
+- "Give me current, Notion-sourced positioning and a short module description for Payments, no prices, for a prospect-facing deck."
+- "What's the current legacy-name mapping for Aritma Pay / Aritma Control / Aritma Commerce?"
+- "Pull the current Small/Medium/Large pricing for Payments from the Pricing database, with any SLA conditions."
+- "Give me the current competitive positioning against Continia for a BC-focused deck."
 
-### Target customers
+That skill already knows and enforces:
 
-- Nordic mid-market companies using Microsoft Dynamics 365 Business Central.
-- Treasury teams managing multi-bank payment flows.
-- Companies with high payment volumes or multi-currency complexity.
-- ERP partners, resellers, and VARs building Business Central solutions.
-- Visma BNXT users for Reconciliation and Smart Bookkeeping.
+- The **Product & Positioning** Notion page: company context, the two offering types (ready-made Aritma products/modules vs. the separately-priced Aritma API Platform), preferred positioning language ("Aritma with Payments and Reconciliation modules", avoid "product portfolio" / "separate products"), the legacy-name mapping (Aritma Pay → Payments, Aritma Control → Reconciliation, Aritma Commerce → PSP Reconciliation feature under Reconciliation, Finance Manager, Smart Bookkeeping, Open Finance Platform → Aritma API Platform), full module descriptions for Payments and Reconciliation, Finance Manager (BC) and its two Swedish pricing models, and SLA tiers.
+- The **Pricing (Payments & Reconciliation)** database — only pull this when the deck is explicitly meant to include prices. Never put API Platform pricing in a deck; it's customer-specific.
+- The **Competitors** database — when the deck needs competitive positioning.
+- Its own freshness and guardrail rules: never guess a price, never state a figure that isn't in the source, flag when something looks outdated, and use figures/wording exactly as returned rather than paraphrasing numbers.
 
-### Pricing (fetch from Notion, never hardcode)
+Use its output directly in slide copy. Do not independently fetch these Notion pages/databases yourself, and do not reuse product wording from a previous deck — content here is explicitly out of this skill's authority (see "Before you start" above).
 
-This skill deliberately contains no prices. Current package prices live in the Notion database **Pricing (Payments & Reconciliation)**, under Aritma Wiki → AI Agents - Knowledge base → Sales Agent – Knowledge Base. Access requires the Notion connector and an Aritma Notion login.
+**Fallback only if the sales-agent skill is unavailable:** search Notion yourself for "Product & Positioning" and "Pricing (Payments & Reconciliation)" (data source `collection://dcbf27eb-c47e-458c-84c9-ec291e6b17ed` for pricing), and apply the same rules: use figures/wording exactly as they appear, never round or convert currency, reflect conditions noted in a `Comment` column, show Enterprise as "Contact sales" unless stated otherwise. If even that fails, insert a clearly marked placeholder (e.g. "[Product description from Notion — confirm]" or "[Price from Notion]") and tell the user which slides still need real content.
 
-Only fetch pricing when the deck or one-pager actually includes prices. When it does:
+### Step 2b — technical and capability claims
 
-1. Fetch the data source with the Notion connector: `collection://dcbf27eb-c47e-458c-84c9-ec291e6b17ed`. If that fails, search Notion for "Pricing (Payments & Reconciliation)".
-2. Read every row for the relevant module. Columns: `Package` (title), `Module` (Payments / Reconciliation / Both), `Price`, `Currency`, `Billing Period`, `What's Included`, `Comment`, `Last Updated`.
-3. Use the figures exactly as they appear. Do not round, convert currency, or fill gaps from memory or older decks.
-4. Check `Comment` for conditions (e.g. with/without SLA, market-specific pricing such as Finance Manager BC in SEK) and reflect them on the slide.
-5. Show Enterprise as "Contact sales" unless the database says otherwise.
-6. If the Notion connector is unavailable or the database cannot be read, do not invent or reuse old prices. Insert a clearly marked placeholder (e.g. "[Price from Notion]") and tell the user which slides need prices filled in.
+Invoke the `aritma-commercial:aritma-solution-architect-agent` skill and ask it the specific technical question before stating a capability on a slide, for example:
 
-API platform pricing is customer-specific and is intentionally not in the database. Never put API prices in a deck.
+- "Does Payments support camt.054 return files for Handelsbanken?"
+- "What's required to connect Payments to Business NXT?"
+- "What ISO 20022 message types does Reconciliation support?"
+
+That skill searches Notion broadly (there's no single consolidated technical knowledge-base page) and will tell you explicitly when something isn't verified rather than guessing. Do not assert a specific technical capability, file format support, or bank/ERP integration detail on a slide unless it has confirmed it.
+
+### Stable facts this skill can use without a lookup
+
+Only directional, slow-changing context, safe for general framing but not for anything a customer could hold Aritma to:
+
+- Aritma is a Norwegian fintech company, Bergen-based, delivering financial infrastructure and automation across the Nordics, and has expanded into Sweden via the Programekonomi acquisition.
+- Aritma is delivered in two distinct ways: ready-made **Aritma products** (built from Modules — Payments, Reconciliation — plus Features on top, e.g. PSP Reconciliation, Direct Debit) and the separately-scoped, customer/partner-built **Aritma API Platform**.
+- Aritma Commerce is no longer sold as a standalone product (its functionality lives under Reconciliation as the PSP Reconciliation feature) — don't present it as a current standalone offering unless the user explicitly asks for historical/legacy material.
+- Directionally, target customers include Nordic mid-market companies on Microsoft Dynamics 365 Business Central, treasury teams managing multi-bank payment flows, companies with high payment volumes or multi-currency complexity, ERP partners/resellers/VARs, and Visma BNXT users.
+
+Treat even these as directional framing, not quotable fact. If a deck depends on an exact figure, specific integration claim, or anything a customer could hold Aritma to, confirm it via Step 2a or 2b rather than stating it from this list.
 
 ---
 
@@ -542,7 +553,9 @@ Use Indigo 45095A, Pink FB8CAF, Blue 2549D2, and light tints such as Indigo-100 
 
 ## Template conventions
 
-At the start of any deck or one-pager request, ask whether to:
+Before drafting slide copy, apply "Aritma product & technical knowledge" above to work out which content needs a sales-agent or solution-architect-agent lookup versus which is pure layout/framing.
+
+At the start of any deck or one-pager request, also ask whether to:
 
 1. Base it on an existing template, asking the user to share it, or
 2. Create a new layout from scratch.
@@ -571,7 +584,7 @@ The file `Aritma_Logo_Icons_and_Infographics.pptx` is Aritma's official brand as
 
 **Setup**: Place the file at `assets/Aritma_Logo_Icons_and_Infographics.pptx` next to this skill's SKILL.md. Without it, layout references still work as guidance, but you will not be able to copy elements directly from the file.
 
-**Important**: The library may contain historical slides or discontinued product references. The Figma design system and the uploaded brand guidelines are authoritative for current color, typography, and product-use decisions.
+**Important**: The library may contain historical slides or discontinued product references. The Figma design system and the uploaded brand guidelines are authoritative for current color, typography, and product-use decisions — and, per "Aritma product & technical knowledge" above, the sales-agent/solution-architect-agent skills are authoritative for current product content.
 
 ### What's in the file
 
@@ -588,7 +601,7 @@ The file `Aritma_Logo_Icons_and_Infographics.pptx` is Aritma's official brand as
 | Media Icons | 16-17 | Communications, files, email, phone, video, social media. |
 | Teamwork Icons | 18-21 | People, collaboration, organizations, meetings. |
 | Europe Map | 26-29 | Editable Europe map. Copy whole map or individual countries. Comes in variants: simple map, map + stat callout, map + donut chart, map + bar chart. |
-| Pricing plans | 30-31 | Pricing table layouts. Use the layout only. The figures in the file may be outdated: always replace them with current prices from the Notion Pricing database (see "Pricing" above). |
+| Pricing plans | 30-31 | Pricing table layouts. Use the layout only. The figures in the file may be outdated: always replace them with current prices sourced via `aritma-commercial:aritma-sales-agent` (see "Aritma product & technical knowledge" above). |
 | Stakeholder Maps | 33-52 | Approximately 20 stakeholder diagram variants: ring diagrams, hub-and-spoke, grid matrices, org-style trees, Venn-style overlaps. |
 | KPI Dashboards | 53-76 | Approximately 24 dashboard layouts: stat cards with sparklines, gauge widgets, bar/line/area charts, donut charts, comparisons, multi-metric layouts. |
 | Timeline | 77-84 | Approximately 8 timeline variants: horizontal milestone, vertical milestone, zigzag, compact table-style. |
@@ -609,7 +622,7 @@ Use layouts from the library as structural references. Before generating new con
 ### When to use which section
 
 - Need a map of Europe: slides 26-29.
-- Presenting pricing to a customer: layout from slides 30-31, figures from the Notion Pricing database.
+- Presenting pricing to a customer: layout from slides 30-31, figures sourced via `aritma-commercial:aritma-sales-agent`.
 - Need a process or milestone flow: slides 77-84.
 - Showing KPIs or financial metrics: slides 53-76.
 - Need a 2-4 column content layout: slides 85-103.
@@ -635,7 +648,7 @@ After generating, always:
    - Cards use White surfaces and consistent corner radius.
 3. Check no incorrect legacy skill colors slipped in: 2D1B4E, F5A0B5, E8799A, F5EDE6, 5C5270, 8B7FA3, D4C4E8.
 4. Check that Aritma Uten is used only for display/title moments and Inter is used for readable body content.
-5. If the deck contains prices: confirm every figure came from the Notion Pricing database in this session, or is a clearly marked placeholder. No prices from memory or old decks.
+5. If the deck contains product, positioning, technical, or pricing claims: confirm every such claim was sourced this session via `aritma-commercial:aritma-sales-agent` and/or `aritma-commercial:aritma-solution-architect-agent` (see "Aritma product & technical knowledge" above), or is a clearly marked placeholder. No product facts or prices from memory or old decks.
 
 ---
 
